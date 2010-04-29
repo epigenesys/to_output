@@ -1,8 +1,9 @@
 ## MAC OS
 .DS_Store
 
-## TEXTMATE
+## TEXTMATE / Komodo
 *.tmproj
+*.kpf
 tmtags
 
 ## EMACS

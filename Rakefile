@@ -5,10 +5,10 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "to_output"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Attach to_output methods to all objects}
+    gem.description = %Q{Attach to_output methods to all objects, providing neat display of types}
     gem.email = "glen@epigenesys.co.uk"
-    gem.homepage = "http://github.com/glenjamin/to_output"
+    gem.homepage = "https://git.epigenesys.co.uk/?p=to_output.git;a=summary"
     gem.authors = ["Glen Mailer"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
