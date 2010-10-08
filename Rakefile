@@ -1,5 +1,9 @@
-require 'rubygems'
-require 'rake'
+require "rubygems"
+require "bundler"
+Bundler.setup
+
+require "rake"
+require "rspec/core/rake_task"
 
 begin
   require 'jeweler'
@@ -8,37 +12,39 @@ begin
     gem.summary = %Q{Attach to_output methods to all objects}
     gem.description = %Q{Attach to_output methods to all objects, providing neat display of types}
     gem.email = "glen@epigenesys.co.uk"
-    gem.homepage = "https://git.epigenesys.co.uk/?p=to_output.git;a=summary"
+    gem.homepage = "http://github.com/epigenesys/to_output"
     gem.authors = ["Glen Mailer"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_development_dependency "rspec", ">= 2.0.0.rc"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
   puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
 end
 
-require 'spec/rake/spectask'
-Spec::Rake::SpecTask.new(:spec) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.spec_files = FileList['spec/**/*_spec.rb']
+rspec_options = lambda do |task|
+  task.pattern = "spec/*_spec.rb"
+  task.fail_on_error = false
 end
 
-Spec::Rake::SpecTask.new(:rcov) do |spec|
-  spec.libs << 'lib' << 'spec'
-  spec.pattern = 'spec/**/*_spec.rb'
-  spec.rcov = true
+RSpec::Core::RakeTask.new(:spec) do |task|
+  rspec_options.call(task)
+end
+
+desc "Run RSpec code examples and generate RCov coverage report"
+RSpec::Core::RakeTask.new(:coverage) do |task|
+  rspec_options.call(task)
+
+  task.rcov = true
+  task.rcov_opts = "--exclude spec,#{Gem.path.join(",")}"
+end
+
+namespace :coverage do
+  desc "Clear the coverage data"
+  task :clean do
+    sh("rm -rf metrics/coverage/")
+  end
 end
 
 task :spec => :check_dependencies
 
 task :default => :spec
-
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "to_output #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end

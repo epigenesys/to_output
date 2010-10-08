@@ -5,6 +5,6 @@ gem "rake"
 gem "jeweler"
 
 group :testing do
-  gem "rspec"
+  gem "rspec", ">= 2.0.0.rc"
   gem "rcov"
 end

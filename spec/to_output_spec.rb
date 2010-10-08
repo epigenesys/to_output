@@ -1,4 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require "to_output"
 
 describe "to_output" do
   describe Object do

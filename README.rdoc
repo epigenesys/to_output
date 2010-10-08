@@ -14,4 +14,4 @@ Adds #to_output() onto every object, for a neat way of outputting without breaki
 
 == Copyright
 
-Copyright (c) 2010 Glen Mailer. See LICENSE for details.
+Copyright (c) 2010 epiGenesys Ltd. See LICENSE for details.
