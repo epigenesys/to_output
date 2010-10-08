@@ -67,6 +67,18 @@ describe "to_output" do
     end
   end
 
+  describe Time do
+    it "should use local time dd/mm/yyyy hh:mm by default" do
+      t = Time.local(1999, 7, 21, 15, 37)
+      t.to_output.should == "21/07/1999 15:37"
+    end
+    it "should have format overridable with config" do
+      ToOutput.config(:datetime, "%d %B %y %I:%M%p")
+      t = Time.local(2002, 7, 5, 17, 12)
+      t.to_output.should == "05 July 02 05:12PM"
+    end
+  end
+
   describe Array do
     it "should join with ', ' by default" do
       a = [1, 2, 3]
