@@ -1,6 +1,18 @@
 = to_output
 
-Adds #to_output() onto every object, for a neat way of outputting without breaking to_s.
+Adds #to_output onto every object, for a neat way of outputting without breaking to_s.
+
+http://rubygems.org/gems/to_output
+
+== Installation
+
+=== System Wide
+
+  gem install to_output
+
+=== Gemfile
+
+  gem "to_output"
 
 == Note on Patches/Pull Requests
 
