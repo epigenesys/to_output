@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{to_output}
-  s.version = "1.0.1"
+  s.version = "1.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Glen Mailer"]
-  s.date = %q{2010-04-29}
+  s.date = %q{2010-10-08}
   s.description = %q{Attach to_output methods to all objects, providing neat display of types}
   s.email = %q{glen@epigenesys.co.uk}
   s.extra_rdoc_files = [
@@ -19,18 +19,22 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     "Gemfile",
+     "Gemfile.lock",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
+     "VERSION",
      "lib/to_output.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
-     "spec/to_output_spec.rb"
+     "spec/to_output_spec.rb",
+     "to_output.gemspec"
   ]
   s.homepage = %q{https://git.epigenesys.co.uk/?p=to_output.git;a=summary}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Attach to_output methods to all objects}
   s.test_files = [
     "spec/spec_helper.rb",
@@ -41,7 +45,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
     else
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
